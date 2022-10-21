@@ -6,6 +6,7 @@ export class SearchBar extends Component {
   state = {
     imgSearch: '',
   };
+
   handleNameChange = event => {
     this.setState({ imgSearch: event.currentTarget.value.toLowerCase() });
   };
