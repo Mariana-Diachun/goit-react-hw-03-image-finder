@@ -4,6 +4,7 @@ import { SearchBar } from 'components/SearchBar/SearchBar';
 import { ImageGallery } from 'components/ImageGallery/ImageGallery';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Box } from 'components/App/App.styled';
 
 const BASE_URL = 'https://pixabay.com/api/';
 const apiKey = '29855363-01552555bb9c5e3aa2475f468';
@@ -34,11 +35,11 @@ export class App extends Component {
 
   render() {
     return (
-      <div>
+      <Box>
         <SearchBar onSubmit={this.handleFormSubmit} />
         <ImageGallery images={this.state.hits} />
         <ToastContainer autoClose={3000} />
-      </div>
+      </Box>
     );
   }
 }

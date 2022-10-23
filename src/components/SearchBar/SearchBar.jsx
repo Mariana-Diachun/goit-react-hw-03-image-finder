@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Form, Input } from 'components/SearchBar/SearchBar.styled';
 
 export class SearchBar extends Component {
   state = {
@@ -24,17 +25,17 @@ export class SearchBar extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <button type="submit">Mace icon</button>
+      <Form onSubmit={this.handleSubmit}>
+        <button type="submit">Search</button>
 
-        <input
+        <Input
           type="text"
           name="imgSearch"
           value={this.state.imgSearch}
           onChange={this.handleNameChange}
           placeholder="Search images and photos"
         />
-      </form>
+      </Form>
     );
   }
 }

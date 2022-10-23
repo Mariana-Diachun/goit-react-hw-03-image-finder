@@ -1,7 +1,9 @@
-import { Component } from 'react';
-
-export class ImageGalleryItem extends Component {
-  render() {
-    return <div></div>;
-  }
-}
+export const ImageGalleryItem = ({ webformatURL, largeImageURL }) => {
+  return (
+    <li>
+      <a href={largeImageURL}>
+        <img src={webformatURL}></img>
+      </a>
+    </li>
+  );
+};
