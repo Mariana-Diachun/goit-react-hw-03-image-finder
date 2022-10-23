@@ -1,9 +1,15 @@
+import {
+  Item,
+  Link,
+  Image,
+} from 'components/ImageGalleryItem/ImageGalleryItem.styled';
+
 export const ImageGalleryItem = ({ webformatURL, largeImageURL }) => {
   return (
-    <li>
-      <a href={largeImageURL}>
-        <img src={webformatURL}></img>
-      </a>
-    </li>
+    <Item>
+      <Link href={largeImageURL}>
+        <Image src={webformatURL}></Image>
+      </Link>
+    </Item>
   );
 };

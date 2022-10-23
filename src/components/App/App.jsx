@@ -13,6 +13,7 @@ export class App extends Component {
   state = {
     imgSearch: '',
     hits: [],
+    error: null,
   };
 
   handleFormSubmit = imgSearch => {
@@ -29,7 +30,9 @@ export class App extends Component {
           `${BASE_URL}?key=${apiKey}&q=${nextImgSearch}&page=1&image_type=photo&orientation=horizontal&per_page=12`
         );
         this.setState({ hits: response.data.hits });
-      } catch (error) {}
+      } catch (error) {
+        this.setState({ error: 'Error. Please reload a page and try again!' });
+      }
     }
   }
 
@@ -37,6 +40,7 @@ export class App extends Component {
     return (
       <Box>
         <SearchBar onSubmit={this.handleFormSubmit} />
+        {this.state.error && <div>{this.state.error}</div>}
         <ImageGallery images={this.state.hits} />
         <ToastContainer autoClose={3000} />
       </Box>

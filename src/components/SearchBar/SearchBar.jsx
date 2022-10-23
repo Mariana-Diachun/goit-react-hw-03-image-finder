@@ -1,7 +1,12 @@
 import { Component } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Form, Input } from 'components/SearchBar/SearchBar.styled';
+import {
+  Wrap,
+  Form,
+  Input,
+  Button,
+} from 'components/SearchBar/SearchBar.styled';
 
 export class SearchBar extends Component {
   state = {
@@ -25,17 +30,19 @@ export class SearchBar extends Component {
 
   render() {
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <button type="submit">Search</button>
+      <Wrap>
+        <Form onSubmit={this.handleSubmit}>
+          <Button type="submit"></Button>
 
-        <Input
-          type="text"
-          name="imgSearch"
-          value={this.state.imgSearch}
-          onChange={this.handleNameChange}
-          placeholder="Search images and photos"
-        />
-      </Form>
+          <Input
+            type="text"
+            name="imgSearch"
+            value={this.state.imgSearch}
+            onChange={this.handleNameChange}
+            placeholder="Search images and photos"
+          />
+        </Form>
+      </Wrap>
     );
   }
 }
