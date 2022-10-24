@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { Component } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,6 +13,8 @@ import {
 export class SearchBar extends Component {
   state = {
     imgSearch: '',
+    images: [],
+    page: 1,
   };
 
   handleNameChange = event => {
@@ -19,6 +23,11 @@ export class SearchBar extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    this.setState({
+      imgSearch: event.currentTarget.elements.imgSearch.value,
+      images: [],
+      page: 1,
+    });
     if (this.state.imgSearch.trim() === '') {
       toast.error('Please enter a word!');
       return;
@@ -46,3 +55,6 @@ export class SearchBar extends Component {
     );
   }
 }
+SearchBar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
