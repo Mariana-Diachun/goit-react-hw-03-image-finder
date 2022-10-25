@@ -16,8 +16,8 @@ export class App extends Component {
     errorMessage: '',
   };
 
-  handleFormSubmit = imgSearch => {
-    this.setState({ imgSearch: imgSearch, page: 1 });
+  handleFormSubmit = query => {
+    this.setState({ imgSearch: query, page: 1 });
   };
   onLoadMoreClick = () => {
     this.setState(state => ({ page: state.page + 1 }));

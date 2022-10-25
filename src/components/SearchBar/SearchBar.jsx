@@ -13,27 +13,27 @@ import {
 
 export class SearchBar extends Component {
   state = {
-    imgSearch: '',
+    query: '',
   };
 
   handleNameChange = event => {
-    this.setState({ imgSearch: event.currentTarget.value.toLowerCase() });
+    this.setState({ query: event.currentTarget.value.toLowerCase() });
   };
 
   handleSubmit = event => {
     event.preventDefault();
 
     this.setState({
-      imgSearch: event.currentTarget.elements.imgSearch.value,
+      query: event.currentTarget.elements.query.value,
     });
 
-    if (this.state.imgSearch.trim() === '') {
+    if (this.state.query.trim() === '') {
       toast.error('Please enter a word!');
       return;
     }
 
-    this.props.onSubmit(this.state.imgSearch);
-    this.setState({ imgSearch: '' });
+    this.props.onSubmit(this.state.query);
+    this.setState({ query: '' });
   };
 
   render() {
@@ -46,8 +46,8 @@ export class SearchBar extends Component {
 
           <Input
             type="text"
-            name="imgSearch"
-            value={this.state.imgSearch}
+            name="query"
+            value={this.state.query}
             onChange={this.handleNameChange}
             placeholder="Search images and photos"
           />
