@@ -34,8 +34,8 @@ export class App extends Component {
       <Box>
         <SearchBar onSubmit={this.handleFormSubmit} />
         <ImageGallery
-          query={this.imgSearch}
-          page={this.page}
+          query={this.state.imgSearch}
+          page={this.state.page}
           setStatus={this.setStatus}
         />
         {this.state.status === 'loading' && <Loader />}

@@ -3,6 +3,7 @@ import {
   Image,
 } from 'components/ImageGalleryItem/ImageGalleryItem.styled';
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Modal } from 'components/Modal/Modal';
 
 export class ImageGalleryItem extends Component {
@@ -29,6 +30,7 @@ export class ImageGalleryItem extends Component {
   closeModal = () => {
     this.setState({ isModalOpen: false });
   };
+
   render() {
     const { webformatURL, largeImageURL, tags } = this.props.item;
     return (
@@ -46,12 +48,6 @@ export class ImageGalleryItem extends Component {
   }
 }
 
-// export const ImageGalleryItem = ({ webformatURL, largeImageURL }) => {
-//   return (
-//     <Item>
-//       <Link href={largeImageURL}>
-//         <Image src={webformatURL}></Image>
-//       </Link>
-//     </Item>
-//   );
-// };
+ImageGalleryItem.propTypes = {
+  item: PropTypes.object.isRequired,
+};
